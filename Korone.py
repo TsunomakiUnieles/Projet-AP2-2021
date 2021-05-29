@@ -1,5 +1,13 @@
 # Tache 1
 
+
+from fltk import cercle, donne_ev, type_ev, abscisse, ordonnee, efface_tout
+from fltk import image, texte, rectangle, cree_fenetre, ferme_fenetre
+from fltk import attend_clic_gauche, mise_a_jour, ligne, efface
+from fltk import touche, attend_ev
+from pathlib import Path
+
+
 def est_trace(etat, segment):
     if etat[segment] == 1:
         return True
@@ -148,3 +156,193 @@ def status_slither(etat, indices):
             if statut_case(indices, etat, (i, j)) != 0:
                 status_all_case = False
     print("Les indices sont-ils satisfaits : " + str(status_all_case))
+
+# Tache 3
+
+
+def menu():
+    cree_fenetre(600, 600)
+    texte(
+        300,
+        60,
+        "Slitherlink",
+        couleur="darkred",
+        police="verdana",
+        ancrage="center",
+        taille=40,
+    )
+    rectangle(
+        180,
+        150,
+        420,
+        250,
+        couleur="darkblue",
+        remplissage="darkblue",
+        epaisseur=2
+    )
+    texte(220, 180, "Jouer", police="calibri", couleur="white")
+    rectangle(
+        180,
+        301,
+        420,
+        401,
+        couleur="darkblue",
+        remplissage="darkblue",
+        epaisseur=2
+    )
+    texte(220, 331, "Crédits", police="calibri", couleur="white")
+    rectangle(
+        180,
+        450,
+        420,
+        550,
+        couleur="darkblue",
+        remplissage="darkblue",
+        epaisseur=2
+    )
+    texte(220, 480, "Quitter", police="calibri", couleur="white")
+    credit = False
+
+    while True:
+        ev = donne_ev()
+        tev = type_ev(ev)
+
+        # Action dépendant du type d'évènement reçu :
+        if tev == "ClicGauche":
+            abs, ord = abscisse(ev), ordonnee(ev)
+
+            # Lancement du jeu
+            if (((180 <= abs <= 420) and (150 <= ord <= 250))) \
+               and credit is False:
+                break
+
+            # Aller au crédits
+            if (((180 <= abs <= 420) and (301 <= ord <= 401))) \
+               and credit is False:
+                efface_tout()
+                credit = True
+                texte(
+                    300,
+                    80,
+                    "Slitherlink",
+                    ancrage="center",
+                    couleur="red",
+                    taille=40,
+                    police="calibri",
+                )
+                texte(
+                    300,
+                    320,
+                    "BAKHTI Walid - NGUYEN Hervé",
+                    ancrage="center",
+                    couleur="black",
+                    taille=15,
+                    police="calibri",
+                )
+                texte(
+                    300,
+                    350,
+                    "L1 M-I / Projet AP2",
+                    ancrage="center",
+                    couleur="black",
+                    taille=15,
+                    police="calibri",
+                )
+                texte(
+                    300,
+                    380,
+                    "Université Gustave Eiffel, 2021",
+                    ancrage="center",
+                    couleur="black",
+                    taille=15,
+                    police="calibri",
+                )
+                rectangle(410, 505, 550, 555, remplissage="grey", epaisseur=2)
+                texte(420, 510, "Retour", police="calibri")
+
+            # Retourner au menu principal depuis les crédits
+            if ((410 <= abs <= 550) and (505 <= ord <= 555)) \
+               and credit is True:
+                efface_tout()
+                credit = False
+                texte(
+                    300,
+                    60,
+                    "JEU DE LA VIE",
+                    couleur="darkred",
+                    police="verdana",
+                    ancrage="center",
+                    taille=40,
+                )
+                rectangle(
+                    180,
+                    150,
+                    420,
+                    250,
+                    couleur="darkblue",
+                    remplissage="darkblue",
+                    epaisseur=2,
+                )
+                texte(220, 180, "Jouer", police="calibri", couleur="white")
+                rectangle(
+                    180,
+                    301,
+                    420,
+                    401,
+                    couleur="darkblue",
+                    remplissage="darkblue",
+                    epaisseur=2,
+                )
+                texte(220, 331, "Crédits", police="calibri", couleur="white")
+                rectangle(
+                    180,
+                    450,
+                    420,
+                    550,
+                    couleur="darkblue",
+                    remplissage="darkblue",
+                    epaisseur=2,
+                )
+                texte(220, 480, "Quitter", police="calibri", couleur="white")
+
+            if (((180 <= abs <= 420) and (450 <= ord <= 550))) \
+               and credit is False:
+                efface_tout()
+                texte(
+                    300,
+                    150,
+                    "Fermeture du jeu !",
+                    ancrage="center",
+                    couleur="black",
+                    taille=30,
+                    police="calibri",
+                )
+                texte(
+                    300,
+                    240,
+                    "Faites un clic gauche pour quitter.",
+                    ancrage="center",
+                    couleur="black",
+                    taille=20,
+                    police="calibri",
+                )
+                attend_clic_gauche()
+                ferme_fenetre()
+                return
+        if tev == "Quitte":
+            break
+        mise_a_jour()
+
+    ferme_fenetre()
+
+    if (
+        __name__ == "__main__"
+        and (tev != "Quitte")
+    ):
+        chaine = Path('grille.txt').read_text()
+        valide = verfie(chaine)
+        if valide is False:
+            print("Fichier non valide !")
+        elif valide is True:
+            indice = convert_indice(chaine)
+            jeu(indice)
