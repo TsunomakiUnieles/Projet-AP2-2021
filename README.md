@@ -6,7 +6,7 @@ It is a Slitherlink inspired game coded with Python using fltk, a graphical libr
 
 ## Usage
 
-Open Slitherlink.py in it's directory
+Execute Slitherlink.py in it's directory
 ```bash
 python Slitherlink.py
 ```
