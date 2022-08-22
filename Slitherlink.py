@@ -5,7 +5,7 @@
 
 from fltk import cercle, type_ev, abscisse, ordonnee, efface_tout
 from fltk import image, texte, rectangle, cree_fenetre, ferme_fenetre
-from fltk import attend_clic_gauche, mise_a_jour, ligne, efface
+from fltk import attend_clic_gauche, mise_a_jour, ligne
 from fltk import attend_ev
 from pathlib import Path
 
