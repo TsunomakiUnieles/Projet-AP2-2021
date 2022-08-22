@@ -1,4 +1,4 @@
-# Projet-AP2-2021 (Slitherlink)
+# L1-S2_ProjetSlitherlink_AP2
 
 This is a project for the class "ALGORITHMIQUE ET PROGRAMMATION 2" in 1st year of Computer Science at Université Gustave Eiffel.
 
