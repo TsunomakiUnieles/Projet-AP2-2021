@@ -2,7 +2,7 @@
 
 This is a project for the class "ALGORITHMIQUE ET PROGRAMMATION 2" in 1st year of Computer Science at Université Gustave Eiffel.
 
-It is a Slitherlink inspired game coded with Python using fltk, a graphical library based on tkinter made by the educational team of the University.
+It is a Slitherlink inspired game coded with Python using fltk.py, a graphical library based on tkinter made by the educational team of the University.
 
 ## Usage
 
