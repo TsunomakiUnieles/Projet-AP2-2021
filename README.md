@@ -22,4 +22,4 @@ This repository is unlikely to be updated.
 ## Note for my juniors
 
 I highly discourage you from plagiarizing this project as it is intellectual dishonesty to turn in work that is not yours.
-The source is public and if they find you (and they will), you will FAIL the class.
+The source is public and if they find you, you will FAIL the class.
