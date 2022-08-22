@@ -18,3 +18,8 @@ For more details, please read the project report written in French
 The basic functionalities of the game are completed but advanced functionalities such as the auto-solver are not.
 
 This repository is unlikely to be updated.
+
+## Note for my juniors
+
+I highly discourage you from plagiarizing this project as it is intellectual dishonesty to turn in work that is not yours.
+The source is public and if they find you (and they will), you will FAIL the class.
