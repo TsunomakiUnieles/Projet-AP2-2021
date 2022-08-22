@@ -11,7 +11,9 @@ Execute Slitherlink.py in it's directory
 python Slitherlink.py
 ```
 
-For more details, please read the project report written in French
+The game can be played on a graphical window with the mouse.
+
+For more details, please read the project report written in French.
 
 ## State of the project
 
