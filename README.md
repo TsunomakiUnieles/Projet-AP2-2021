@@ -21,7 +21,6 @@ The basic functionalities of the game are completed but advanced functionalities
 
 This repository is unlikely to be updated.
 
-## Note for my juniors
+## xdd pedro
 
-I highly discourage you from plagiarizing this project as it is intellectual dishonesty to turn in work that is not yours.
-The source is public and if they find you, you will FAIL the class.
+xdd
